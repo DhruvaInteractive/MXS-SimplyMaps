@@ -6,12 +6,13 @@
 * Quick Iterations on textures
 * Get Normal, AO, Height and Color Selection Maps at once
 
-##Installation
-1.Download MZP from [GitHub](https://github.com/DhruvaInteractive/MXS-SimplyMaps)
+**Installation**
 
-2.Drag-Drop the MZP on to 3dsmax
+1. Download MZP from [GitHub](https://github.com/DhruvaInteractive/MXS-SimplyMaps)
 
-3.Install and Enjoy !
+2. Drag-Drop the MZP on to 3dsmax
+
+3. Install and Enjoy !
 
 **Quick Guide**
 
