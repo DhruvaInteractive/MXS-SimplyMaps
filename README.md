@@ -30,7 +30,7 @@ UI | Description
 ![](https://github.com/DhruvaInteractive/MXS-SimplyMaps/blob/master/doc/ui_04.jpg) |<sub>**Actions:**<br>**[5] New Canvas**<br>Create new canvas in scene. Only one canvas can be present in the scene at a time.<br>**[6] Render**<br>Render maps with the settings provided. Current renderer should be set to Scanline.<br>**[7] Preview**<br>_**No Selection:**_ Preview maps rendered on a plane.<br>_**Object Selection:**_ Applies preview material to the selected object.<br>**[8] Help**<br>Show quick help.</sub>
 ![](https://github.com/DhruvaInteractive/MXS-SimplyMaps/blob/master/doc/ui_05.jpg) |<sub>**Toolbox:**<br>**[1] Pivot Placer**<br>_**Center:**_ Center pivot for selected objects.<br>_**Sub-Object:**_ Context-sensitive. Sets pivot to the desired face, vertex or edge selection. Works on both Editable Poly and Editable Mesh objects.<br>**[2] Drop on Canvas**<br>Drop selected object on the canvas. Helpful in keeping details close by to canvas, resulting in an appropriate height map render.</sub>
 
-## Road Map
+**Road Map**
 
 - [ ] Multi-Canvas support in a scene
 - [ ] Multiple UV Channel Support
