@@ -1,0 +1,10 @@
+name "DhruvaTools"
+description "Dhruva Tools Setup"
+version 1.0
+
+extract to "%temp%"
+
+run installer.ms
+drop installer.ms
+
+clear temp on MAX exit
