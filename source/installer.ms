@@ -1,4 +1,44 @@
+/**************************************************************************************
+:Company:		Dhruva Infotech Pvt. Ltd.
+:Authors:		Priyabrata Biswal
+				Amit Anand Dey (Normal,Height and AO functions)
+				Kiran Pulicheri (Installer)
+				Mukund Rao (Canvas plane setup on viewport)
+				Bijoy Thomas (Misc ideas)
+				Jagdish B. V. (Non-Rectangular Render )
 
+:Site:			http://dhruva.com
+:E-mail:			tooldev@dhruva.com
+
+:Script Name:		[SimplyMaps]
+
+:Purpose:
+Render various maps on the fly, for faster iteration of tilable mechnaical maps.
+
+License:
+The MIT License (MIT)
+
+Copyright (c) 2015 Dhruva Infotech (P) Ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+***************************************************************************************/
 global DHRUVA_TOOL_NAMEX = "DhruvaTools"
 global DHRUVA_TOOL_ROOTX = getDir #userScripts + @"\" + DHRUVA_TOOL_NAMEX
 
@@ -52,7 +92,7 @@ fn DTUnInstall =
 		hiddendoscommand ("rmdir /s /q \""+ DHRUVA_TOOL_ROOTX_MS + "\"")
 		hiddendoscommand ("del /q \""+ (getDir #userIcons) + "\\DhruvaTools_.*i.bmp\"")
 		try (destroyDialog rol_dt_installer)catch()
-		messagebox ("Dhruva Tools Uninstalled successfully")
+		messagebox ("Dhruva Tools Uninstalled successfully.\nAny toolbar entry need to be removed manually.")
 	)
 )
 

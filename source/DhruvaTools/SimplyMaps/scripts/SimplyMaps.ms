@@ -15,10 +15,6 @@
 :Purpose:
 Render various maps on the fly, for faster iteration of tilable mechnaical maps.
 
-ToDo:
-BUG | Maps doesn't reload at times.
-
-
 License:
 The MIT License (MIT)
 
@@ -136,10 +132,10 @@ try(
 )catch()
 
 -- Add version update
-rollout rol_dt_SimplyMapsMain "SimplyMaps" width:164 height:700
+rollout rol_dt_SimplyMapsMain "SimplyMaps" width:164 height:720
 (
 	---<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOCAL VARIABLES
-	local intRollWH = #(168,700)
+	local intRollWH = #(168,720)
 	local iBtnWidth = 148
 	local maxTextureSize = 16384
 	local fPathExport
@@ -1262,9 +1258,10 @@ rollout rol_dt_SimplyMapsMain "SimplyMaps" width:164 height:700
 					matPreview.bumpMap = Normal_Bump normal_map:mapNormal
 					matPreview.bumpMapAmount = 100
 				)
-				enableHardwareMaterial matPreview true --switch SMIV flyout to HW mode
-				showHWTextureMap matPreview true --press the SMIV icon
 				mPreviewMesh.material = matPreview
+				enableHardwareMaterial mPreviewMesh.material true --Switch to Hardware display mode
+				showHWTextureMap mPreviewMesh.material true --Enable Hardware display on material
+				
 -- 				matPreview.showInViewport = true
 
 			)else messagebox "No Canvas mesh found in scene." title:"SimplyMaps"
@@ -1299,6 +1296,7 @@ rollout rol_dt_SimplyMapsMain "SimplyMaps" width:164 height:700
 		)
 
 		button btnCanvasDropper "Drop on Canvas" width:145 height:18 tooltip:"Drop selected objects on canvas."
+		button btnSelectCanvasMeshes "Select Canvas Meshes" width:145 height:18 tooltip:"Selected meshes on canvas."
 
 		fn SetPivot obj =
 		(
@@ -1419,19 +1417,44 @@ rollout rol_dt_SimplyMapsMain "SimplyMaps" width:164 height:700
 		on btnCanvasDropper pressed do
 		(
 			local offset = 0.5
-			if $SM_Canvas != undefined then
+			if $SM_Canvas != undefined and $SM_Canvas_ROOT != undefined then
 			(
+				local aCanvasMeshes = getCanvasMeshes $SM_Canvas_ROOT
 				undo "Drop on Canvas" on
 				(
 					for s in selection do
 					(
 						local pivOffset = distance [s.min.x,s.min.y,s.pivot.z] s.min
-						local iRay = intersectRay $SM_Canvas (ray s.min [0,0,-1])
+						local iRay
+						local oldHeight = 0.0
+						if aCanvasMeshes.count > 0 then
+						(
+							
+							for a in aCanvasMeshes where a.name != s.name do 
+							(
+								if (intersectRay a (ray s.min [0,0,-1])) != undefined and a.min.z > oldHeight then 
+								(
+									iRay = intersectRay a (ray s.min [0,0,-1])
+-- 									exit
+								) else iRay = intersectRay $SM_Canvas (ray s.min [0,0,-1])
+								oldHeight = a.min.z
+							)		
+						) else iRay = intersectRay $SM_Canvas (ray s.min [0,0,-1])
 
 						if iRay != undefined then s.pos.z =  iRay.pos.z + pivOffset + offset
 
 					)
 				)
+			) else messagebox "No Canvas mesh found in scene." title:"SimplyMaps"
+		)
+
+		on btnSelectCanvasMeshes pressed do
+		(
+			if $SM_Canvas != undefined and $SM_Canvas_ROOT != undefined then
+			(
+				clearSelection()
+				select (getCanvasMeshes $SM_Canvas_ROOT)
+
 			) else messagebox "No Canvas mesh found in scene." title:"SimplyMaps"
 		)
 	)
