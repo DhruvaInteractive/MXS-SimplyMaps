@@ -8,7 +8,7 @@
 
 **Installation**
 
-1. Download MZP from [GitHub](https://github.com/DhruvaInteractive/MXS-SimplyMaps/blob/master/installer/DhruvaTools_SimplyMaps_v1.mzp)
+1. Download MZP from [GitHub](https://github.com/DhruvaInteractive/MXS-SimplyMaps/blob/master/installer/DhruvaTools_SimplyMaps_v1.mzp) (Right-Click > Save Target As)
 
 2. Drag-Drop the MZP on to 3dsmax
 
