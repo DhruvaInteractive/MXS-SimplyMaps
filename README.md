@@ -33,6 +33,7 @@ UI | Description
 **Road Map**
 
 - [ ] Multi-Canvas support in a scene
+- [ ] Mesh Tiling Preview
 - [ ] Multiple UV Channel Support
 - [ ] Support for Edge Padding
 - [ ] Save to PSD
